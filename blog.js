@@ -22,7 +22,7 @@ const subscribers = [
 		email: 'chinwe.nwankwo@example.com',
 		isSubscribed: false,
 		subscriptionDate: '2025-07-17',
-		subscriptionPreferences: null
+		subscriptionPreferences: ['']
 	}
 ];
 
