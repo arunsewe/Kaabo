@@ -1,5 +1,16 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+interface Subscriber {
+  id: string;
+  name: string;
+  email: string;
+  isSubscribed: boolean;
+  subscriptionDate: string;
+  subscriptionPreferences: string[] | null; // Array of preferences or null if no preferences
+}
 //create a mockData of subscribers
-const subscribers = [
+const subscribers: Subscriber[] = [
 	{
 		id: 'SUB001',
 		name: 'Khalifa Abdul',
@@ -26,8 +37,16 @@ const subscribers = [
 	}
 ];
 
+interface BlogPost {
+  id: string;
+  title: string;      
+  author: string;
+  date: string; 
+  content: string;
+  tag: string[]; 
+}
 //create a mockData of blog posts
-const blogPosts = [
+const blogPosts: BlogPost[] = [
     {
         id: 'POST001',
         title: 'Welcome to Kaabo!',
@@ -66,17 +85,19 @@ const blogPosts = [
 //create an email service to send emails (using nodemailer)
 const nodemailer = require('nodemailer');
 
+console.log('EMAIL_USER:', process.env.EMAIL_USER);
+console.log('EMAIL_PASSWORD:', process.env.EMAIL_PASSWORD);
 // Example transporter setup (use your real credentials in production)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'ayanferunsewe@gmail.com', // replace with your email
-    pass: 'vkam wqet ibgh xukx' // replace with your password or app password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD
   }
 });
 
 //create a template for the email
-const createEmailTemplate = (subscriber, blogPost) => {
+const createEmailTemplate = (subscriber: Subscriber, blogPost: BlogPost) => {
   const formattedDate = new Date(blogPost.date).toLocaleDateString();
   const tagBadges = blogPost.tag.map(tag => `
     <span style="
@@ -137,30 +158,36 @@ const createEmailTemplate = (subscriber, blogPost) => {
 const usersToNotify = subscribers;
 
 //create a function to send the email
-const sendEmail = (to, subject, html) => {
+const sendEmail = (to: string, subject: any, html:string , fromTitle: string = 'Kaabo Newsletter'): void => {
   const mailOptions = {
-    from: 'ayanferunsewe@gmail.com',
+    from: `${fromTitle} <ayanferunsewe@gmail.com>`, 
     to, 
     subject: subject,
     html 
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
+  transporter.sendMail(mailOptions, (error: Error | null, info:any) => {
     if (error) {
       return console.log('Error while sending email:', error);
     }
     console.log('Email sent successfully:', info.response);
   });
 };
+
 // find the latest blog post
-const latestBlogPost = blogPosts.reduce((latest, current) => {
+const latestBlogPost: BlogPost = blogPosts.reduce((latest, current) => {
   return new Date(current.date) > new Date(latest.date) ? current : latest;
 });
 
 // send the latest blog post to all subscribers who isSubscribed is true
-subscribers
+usersToNotify
   .filter(subscriber => subscriber.isSubscribed)
   .forEach(subscriber => {
     const emailTemplate = createEmailTemplate(subscriber, latestBlogPost);
-    sendEmail(subscriber.email, `Update from Kaabo: ${latestBlogPost.title}`, emailTemplate);
+    sendEmail(
+      subscriber.email,
+      `Update from Kaabo: ${latestBlogPost.title}`,
+      emailTemplate,
+      latestBlogPost.title // pass the blog post title as the "from" name
+    );
   });
