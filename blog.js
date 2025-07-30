@@ -152,7 +152,6 @@ const sendEmail = (to, subject, html) => {
     console.log('Email sent successfully:', info.response);
   });
 };
-
 // find the latest blog post
 const latestBlogPost = blogPosts.reduce((latest, current) => {
   return new Date(current.date) > new Date(latest.date) ? current : latest;
