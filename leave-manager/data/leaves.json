@@ -1,0 +1,59 @@
+[
+  {
+    "id": "1baf09a4-8e9a-4f03-9fd9-a233d8dc57de",
+    "name": "Rachel Ibe",
+    "startDate": "2025-08-01",
+    "endDate": "2025-08-05",
+    "reason": "Family wedding",
+    "status": "Approved"
+  },
+  {
+    "id": "23719d15-7983-493f-b792-d1d7c64c279c",
+    "name": "Ahmed Bello",
+    "startDate": "2025-08-10",
+    "endDate": "2025-08-14",
+    "reason": "Medical appointment and rest",
+    "status": "Pending"
+  },
+  {
+    "id": "18e5d917-4ecf-49bc-9dc4-d5bde8f61f95",
+    "name": "Priya Sharma",
+    "startDate": "2025-07-28",
+    "endDate": "2025-07-30",
+    "reason": "Religious holiday observance",
+    "status": "Rejected",
+    "rejectionReason": "Overlap with team critical deployment schedule"
+  },
+  {
+    "id": "9a0c1f3c-b4c8-4cbf-a06b-8990c8743761",
+    "name": "Justin Madu",
+    "startDate": "2025-08-18",
+    "endDate": "2025-08-25",
+    "reason": "Traveling with family",
+    "status": "Approved"
+  },
+  {
+    "id": "b8215a6a-04fd-4d1d-a0b0-f24cc218d6ab",
+    "name": "Michael Ajayi",
+    "startDate": "2025-08-05",
+    "endDate": "2025-08-07",
+    "reason": "Personal leave",
+    "status": "Pending"
+  },
+  {
+    "id": "fe3322de-f2ec-4634-bd62-cf3e6b76f62a",
+    "name": "Priyanka Joshi",
+    "startDate": "2025-07-22",
+    "endDate": "2025-07-24",
+    "reason": "University final project defense",
+    "status": "Approved"
+  },
+  {
+    "id": "a1c471c3-f4d1-41cd-87e6-b4fd0ec9098d",
+    "name": "Dexter Olayemi",
+    "startDate": "2025-08-20",
+    "endDate": "2025-08-22",
+    "reason": "Mental health day",
+    "status": "Pending"
+  }
+]
