@@ -13,7 +13,8 @@
     "startDate": "2025-08-10",
     "endDate": "2025-08-14",
     "reason": "Medical appointment and rest",
-    "status": "Pending"
+    "status": "Rejected",
+    "rejectionReason": "Not sick enough"
   },
   {
     "id": "18e5d917-4ecf-49bc-9dc4-d5bde8f61f95",
@@ -38,7 +39,8 @@
     "startDate": "2025-08-05",
     "endDate": "2025-08-07",
     "reason": "Personal leave",
-    "status": "Pending"
+    "status": "Rejected",
+    "rejectionReason": "paper"
   },
   {
     "id": "fe3322de-f2ec-4634-bd62-cf3e6b76f62a",
@@ -54,6 +56,14 @@
     "startDate": "2025-08-20",
     "endDate": "2025-08-22",
     "reason": "Mental health day",
+    "status": "Pending"
+  },
+  {
+    "id": "842c507b-9f80-4231-adc9-b77f2c327340",
+    "name": "Ayanfe Runsewe",
+    "startDate": "2025-08-06",
+    "endDate": "2025-08-08",
+    "reason": "Sick",
     "status": "Pending"
   }
 ]

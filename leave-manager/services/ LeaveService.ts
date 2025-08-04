@@ -1,12 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import { LeaveRequest } from '../models/LeaveRequest';
-import { v4 as uuidv4 } from 'uuid'; // to generate a unique identifier
+import { v4 as uuidv4 } from 'uuid';
 
 const filePath = path.join(__dirname, '../data/leaves.json');
 
 export class LeaveService {
-  // Ensure the data file exists
   static getAllRequests(): LeaveRequest[] {
     if (!fs.existsSync(filePath)) return [];
     const data = fs.readFileSync(filePath, 'utf-8');
@@ -16,7 +15,7 @@ export class LeaveService {
   static saveRequests(requests: LeaveRequest[]) {
     fs.writeFileSync(filePath, JSON.stringify(requests, null, 2));
   }
-// Add a new leave request pending approval/denial
+
   static addRequest(
     name: string,
     startDate: string,
@@ -37,7 +36,7 @@ export class LeaveService {
     this.saveRequests(requests);
     return newRequest;
   }
-// Get a specific leave request by ID and approve/deny it
+
   static updateRequest(id: string, updates: Partial<LeaveRequest>): LeaveRequest | null {
     const requests = this.getAllRequests();
     const index = requests.findIndex(req => req.id === id);

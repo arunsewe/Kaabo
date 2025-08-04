@@ -1,6 +1,7 @@
 import { LeaveRequest } from '../models/LeaveRequest';
-//Check if a date is in the future.
- 
+
+
+//Check if the date is in the future
 export function isFutureDate(dateStr: string): boolean {
   const today = new Date();
   const date = new Date(dateStr);
@@ -8,14 +9,14 @@ export function isFutureDate(dateStr: string): boolean {
 }
 
 
-//Ensure start date comes before end date.
+//Ensure start date comes before end date
 export function isDateRangeValid(start: string, end: string): boolean {
   return new Date(start) < new Date(end);
 }
 
 
  //Calculate number of leave days between two dates.
- //Includes both start and end date.
+
 export function calculateLeaveDays(start: string, end: string): number {
   const startDate = new Date(start);
   const endDate = new Date(end);
@@ -25,8 +26,8 @@ export function calculateLeaveDays(start: string, end: string): number {
 }
 
 
-// Check if the new leave overlaps with any existing approved leaves.
- 
+//Check if the new leave overlaps with any existing approved leaves.
+
 export function checkOverlap(
   newReq: LeaveRequest,
   existing: LeaveRequest[]
@@ -44,7 +45,7 @@ export function checkOverlap(
 }
 
 
-// Sum all approved leave days by a user in a given month and year.
+//Sum all approved leave days by a user in a given month.
 
 export function getMonthlyLeaveDays(
   name: string,

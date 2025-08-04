@@ -9,4 +9,3 @@ export interface LeaveRequest {
   status: LeaveStatus;
   rejectionReason?: string;
 }
-
