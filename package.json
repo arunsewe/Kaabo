@@ -1,0 +1,25 @@
+{
+  "name": "vanillakaabo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arunsewe/Kaabo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arunsewe/Kaabo/issues"
+  },
+  "homepage": "https://github.com/arunsewe/Kaabo#readme",
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.17"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
+}
