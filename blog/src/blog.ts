@@ -85,8 +85,7 @@ const blogPosts: BlogPost[] = [
 //create an email service to send emails (using nodemailer)
 const nodemailer = require('nodemailer');
 
-console.log('EMAIL_USER:', process.env.EMAIL_USER);
-console.log('EMAIL_PASSWORD:', process.env.EMAIL_PASSWORD);
+
 // Example transporter setup (use your real credentials in production)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
