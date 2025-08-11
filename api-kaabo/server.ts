@@ -30,11 +30,6 @@ app.post('/api/package', (req, res) => {
 
     //validation
     if (!sender || !recipient || !destination || !weight) {
-        // return {
-        //     error: 'All fields are required',
-        //     status: 400,
-        //     res
-        // };
         return res.status(400).json({
             message: 'All field are required'
         })
@@ -64,13 +59,18 @@ app.post('/api/package', (req, res) => {
 app.put('/api/package/:id', (req, res) => {
     const { id } = req.params;
 
-  //  console.log('Packages in memory:', packages); 
-   // console.log('ID from request:', id);
-    //add validation
+
+    // validation
     const { sender, recipient, destination, weight, status } = req.body;
+     if (!sender || !recipient || !destination || !weight) {
+        return res.status(400).json({
+            message: 'All field are required'
+        })
+        
+    }
 
     const index = packages.findIndex(pkg => pkg.id === id);
-    //console.log('Found index:', index); 
+   
 
     if (index === -1) {
         return res.status(404).json({ message: 'Package not found' });
@@ -84,20 +84,10 @@ app.put('/api/package/:id', (req, res) => {
 });
 //doesnt update tthe id
 app.patch('/api/package/:id', (req, res) => {
-    const { id } = req.params;
-  //  const updates: Update = req.body;
-//console.log('Updates received:', updates);
-//const { sender, recipient, destination, weight, status} = req.body
-//const updates: Update = { sender, recipient, destination, weight, status}
-//const updates = {...(({ sender, recipient, destination, weight, status }) => ({ sender, recipient, destination, weight, status }))(req.body)};
-//console.log('Updates:', updates);
-
+const { id } = req.params;
 const updates = req.body;
 const {id: userid, ...updateData} = updates;
-console.log('Updates:', updateData)
-
-
-;
+//console.log('Updates:', updateData);
 
     
 
