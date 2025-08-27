@@ -3,7 +3,7 @@ import sequelize from "../config/database";
 
 
 interface UserAttributes {
-  id: number;
+  id: string;
   email: string;
   passwordHash: string;
   role?: string;
@@ -17,7 +17,7 @@ class User
   extends Model<UserAttributes, UserCreationAttributes>
   implements UserAttributes 
 {
-  public id!: number;
+  public id!: string;
   public email!: string;
   public passwordHash!: string;
   public role!: string;
