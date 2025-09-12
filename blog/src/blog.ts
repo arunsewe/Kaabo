@@ -13,9 +13,9 @@ interface Subscriber {
 const subscribers: Subscriber[] = [
 	{
 		id: 'SUB001',
-		name: 'Khalifa Abdul',
-		email: 'khalifabdul016@gmail.com',
-		isSubscribed: false,
+		name: 'Sabur Ahmed',
+		email: 'saburahmed794@gmail.com',
+		isSubscribed: true,
 		subscriptionDate: '2025-07-15',
 		subscriptionPreferences: ['technology']
 	},
